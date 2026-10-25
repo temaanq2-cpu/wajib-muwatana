@@ -240,14 +240,33 @@ $("prev").disabled=index===0;
 $("next").textContent=index===4?"إرسال الإجابات":"التالي";
 $("warning").textContent="";
 }
+async function saveParticipation() {
+  const participantKey = crypto.randomUUID();
 
+  const response = await fetch(
+  "  https://lsqbvkqarulcbfeeuzyd.supabase.co/functions/v1/save-participation",
+    {method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        participant_key: participantKey
+      })
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("تعذر تسجيل المشاركة");
+  }
+}
 $("prev").onclick=()=>{if(index>0){index--;render();}};
-$("next").onclick=()=>{
+$("next").onclick=async()=>{
 if(answers[index]===null){$("warning").textContent="اختاري إجابة قبل المتابعة.";return;}
 if(index<4){index++;render();return;}
 if(submitted)return;
 submitted=true;
 const score=answers.filter((a,i)=>a===questions[i].a).length;
+  try { await saveParticipation(); } catch(e) { console.error(e); alert("تعذر تسجيل المشاركة، يرجى المحاولة."); submitted=false; return; }
 $("quiz").classList.add("hide");
 $("result").classList.remove("hide");
 $("score").textContent=`نتيجتكِ: ${score} من ٥`;
