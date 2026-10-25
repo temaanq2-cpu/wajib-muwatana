@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>واجب ومواطنة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<style>
+:root{--green:#194e3b;--pale:#eef4ec;--yellow:#fff1bc;--beige:#faf6ec}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:white;color:#253b31;font:17px Tajawal,Arial,sans-serif;line-height:1.8}
+header,footer{background:var(--pale);padding:20px 5%}
+nav{display:flex;gap:17px;flex-wrap:wrap;margin-top:10px}
+a{color:var(--green)}
+main{max-width:1050px;margin:auto;padding:20px}
+section{padding:36px 0;border-bottom:1px solid #e6e9e3}
+h1,h2,h3{color:var(--green)}
+h1{font-size:clamp(38px,7vw,65px);margin:10px 0}
+h2{font-size:29px}
+.hero{background:linear-gradient(125deg,var(--beige),white);border-radius:25px;padding:50px 30px}
+.slogan{color:#92721b;font-size:25px;font-weight:800}
+button,.button{display:inline-block;border:0;background:var(--green);color:white;padding:12px 20px;border-radius:12px;font:700 16px Tajawal;cursor:pointer;text-decoration:none}
+button:disabled{opacity:.4;cursor:not-allowed}
+.secondary{background:#e4ece4;color:var(--green)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:17px}
+.card{background:var(--beige);padding:23px;border-radius:18px;border:1px solid #eee8d9}
+.icon{font-size:34px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+input,select{width:100%;padding:12px;font:inherit;border:1px solid #bacabd;border-radius:10px;background:white;margin:5px 0 16px}
+label{font-weight:700}
+.choice{display:block;border:1px solid #cbd8cd;border-radius:12px;padding:12px;margin:9px 0;cursor:pointer}
+.choice:has(input:checked){background:var(--pale);border-color:var(--green)}
+.choice input{width:auto;margin:0 8px}
+.hide{display:none!important}
+.progress{height:11px;background:#e6e8e4;border-radius:20px;overflow:hidden}
+#bar{height:100%;background:var(--green);width:20%;transition:.2s}
+.error{color:#a42d2d}
+.good{color:#17643d}
+.review{padding:13px;border-bottom:1px solid #ddd}
+.poster{background:white;border:2px solid #cadcc8;border-radius:18px;padding:25px;text-align:center;max-width:680px;margin:auto}
+.poster h2{font-size:27px}
+.poster p{background:var(--yellow);border-radius:12px;padding:12px}
+.poster-item{padding:9px;border-bottom:1px solid #e3e9df}
+dialog{border:0;border-radius:18px;max-width:95vw;max-height:90vh;overflow:auto}
+dialog::backdrop{background:#15271dcc}
+.certificate{background:#fffdf6;border:10px double #a9bea5;padding:35px 20px;text-align:center;max-width:850px;margin:20px auto;min-height:460px}
+.person{font-size:clamp(21px,4vw,38px);font-weight:800;color:var(--green);overflow-wrap:anywhere}
+.muted{color:#68766d;font-size:14px}
+@media(max-width:550px){.hero{padding:30px 18px}.certificate{padding:22px 12px}}
+@media print{
+header,footer,nav,.actions,.no-print,section:not(#certificate-section){display:none!important}
+main{padding:0}
+#certificate-section{display:block!important;border:0;padding:0}
+.certificate{margin:0;max-width:none;min-height:90vh;display:flex;flex-direction:column;justify-content:center}
+body{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header>
+<strong>وزارة التعليم | الثانوية السابعة بالدمام</strong>
+<nav>
+<a href="#home">الرئيسية</a>
+<a href="#axes">محاور المبادرة</a>
+<a href="#article">المادة ٣٤</a>
+<a href="#participate">الاختبار</a>
+<a href="#counter">المشاركات</a>
+</nav>
+</header>
+
+<main>
+<section id="home" class="hero">
+<p>مبادرة تربوية لتعزيز الانتماء والمواطنة المسؤولة</p>
+<h1>واجب ومواطنة</h1>
+<p class="slogan">انتماؤكِ فخر… ومشاركتكِ ولاء!</p>
+<p>الانتماء للوطن ليس كلمات نرددها فحسب، بل سلوك مسؤول نمارسه في مدرستنا، وفي الفضاء الرقمي، وفي كل موقف.</p>
+<a href="#axes" class="button">ابدئي رحلة المشاركة</a>
+</section>
+
+<section id="axes">
+<h2>محاور المبادرة</h2>
+<p>تعرّفي إلى المحاور الأربعة، واضغطي على الإنفوجرافيك لعرضه بحجم أكبر.</p>
+<div id="axes-list" class="cards"></div>
+</section>
+
+<section id="article">
+<h2>المادة الرابعة والثلاثون من النظام الأساسي للحكم</h2>
+<div class="card">
+<p style="font-size:21px;font-weight:700">«الدفاع عن العقيدة الإسلامية، والمجتمع، والوطن واجب على كل مواطن، ويبين النظام أحكام الخدمة العسكرية.»</p>
+<a href="https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/16b97fcb-4833-4f66-8531-a9a700f161b6/1" target="_blank" rel="noopener">الاطلاع على النظام الأساسي للحكم — هيئة الخبراء بمجلس الوزراء</a>
+</div>
+<h3>من المعرفة إلى السلوك</h3>
+<p>من التطبيقات المدرسية: احترام الأنظمة، والمحافظة على المرافق، والالتزام بتعليمات السلامة، والتحقق من الأخبار، والمبادرة لخدمة المجتمع.</p>
+<p><strong>هذه أمثلة تربوية توضيحية، وليست جزءًا من نص المادة النظامية.</strong></p>
+</section>
+
+<section id="participate">
+<h2>المشاركة والاختبار</h2>
+<div id="registration" class="card">
+<label for="participant">الاسم كما سيظهر في الشهادة</label>
+<input id="participant" maxlength="110" placeholder="اكتبي الاسم الكامل">
+<label for="role">صفة المشاركة</label>
+<select id="role">
+<option value="">اختاري الصفة</option>
+<option>طالبة</option>
+<option>معلمة</option>
+<option>ولية أمر</option>
+</select>
+<button id="start">ابدئي الاختبار</button>
+</div>
+
+<div id="quiz" class="card hide">
+<p id="step"></p>
+<div class="progress"><div id="bar"></div></div>
+<h3 id="question"></h3>
+<div id="choices"></div>
+<p id="warning" class="error" role="alert"></p>
+<div class="actions">
+<button id="prev" class="secondary">السابق</button>
+<button id="next">التالي</button>
+</div>
+</div>
+
+<div id="result" class="hide">
+<h3 id="score"></h3>
+<div id="review"></div>
+<div class="actions">
+<button id="retry">إعادة المحاولة</button>
+<button id="show-cert" class="hide">عرض الشهادة</button>
+</div>
+</div>
+</section>
+
+<section id="certificate-section" class="hide">
+<h2 class="no-print">شهادة الإتمام</h2>
+<div id="certificate" class="certificate">
+<p>وزارة التعليم — الثانوية السابعة بالدمام</p>
+<h1 style="font-size:clamp(25px,4vw,40px)">شهادة إتمام مبادرة واجب ومواطنة</h1>
+<p>تُمنح هذه الشهادة إلى</p>
+<div id="cert-name" class="person"></div>
+<p id="cert-role"></p>
+<p>لإتمام محاور المبادرة والتعرّف إلى المادة الرابعة والثلاثين من النظام الأساسي للحكم، واجتياز الاختبار بنجاح.</p>
+<h2>النتيجة: ٥ من ٥</h2>
+<p id="cert-date"></p>
+<p>بالعلم نرتقي وبالقيم نسمو</p>
+</div>
+<div class="actions no-print">
+<button id="download">تنزيل الشهادة كصورة</button>
+<button id="print">طباعة / حفظ PDF</button>
+<button id="share-cert">مشاركة الشهادة</button>
+</div>
+</section>
+
+<section id="counter">
+<h2>إجمالي المشاركات المكتملة</h2>
+<p id="count-value">العدّاد المشترك غير متصل بعد</p>
+<button id="refresh" class="secondary">تحديث العدّاد</button>
+<p class="muted">عند ربط قاعدة البيانات، يمكن احتساب المشاركة مرة واحدة للاسم والصفة نفسيهما في المتصفح نفسه. لا تمنع هذه الآلية تكرار الشخص عبر أجهزة مختلفة. سيُحفظ معرّف مشتق من الاسم والصفة ومعرّف المتصفح ووقت الإكمال، دون نشر الأسماء. لا تحفظ النسخة الحالية هذه البيانات في خادم.</p>
+</section>
+
+<section class="no-print">
+<h2>شاركي المبادرة</h2>
+<button id="share-site">مشاركة رابط المبادرة</button>
+<p class="muted">يُضاف الباركود الأصلي بعد إرفاقه والتحقق من مطابقته لرابط الموقع المنشور.</p>
+</section>
+</main>
+
+<footer>
+وزارة التعليم — الثانوية السابعة بالدمام<br>
+من برامج التوجيه الطلابي<br>
+الموجهة الطلابية: إيمان القرعاوي | مديرة المدرسة: إيمان الملحم
+</footer>
+
+<dialog id="modal">
+<div id="poster-detail"></div>
+<div class="actions"><button id="close-modal">إغلاق</button></div>
+</dialog>
+
+<script>
+const $=id=>document.getElementById(id);
+
+const axes=[
+{title:"بيعتنا.. عهد ووفاء",icon:"🌿",intro:"ولاء يعزز وحدة الصف ويحافظ على مكتسبات الوطن.",items:["الاعتزاز بالقيادة","الطاعة في المعروف","وحدة الصف","احترام الأنظمة","المحافظة على مكتسبات الوطن"]},
+{title:"سلوك واعٍ… فضاء آمن",icon:"🛡️",intro:"المواطنة الرقمية تبدأ بالوعي والمسؤولية.",items:["التحقق قبل النشر","الرجوع للمصادر الرسمية","احترام الخصوصية","عدم تداول المحتوى المشبوه"]},
+{title:"حماية تبدأ بالوعي",icon:"🚪",intro:"السلامة مسؤولية مشتركة.",items:["اتباع تعليمات السلامة","معرفة مخارج الطوارئ ونقطة التجمع","تجنب التدافع","المحافظة على المرافق وأدوات السلامة"]},
+{title:"قرار يحميك… ومستقبل يستحق",icon:"🌱",intro:"اختياراتك اليوم تصنع مستقبلك.",items:["رفض المخدرات والمواد المجهولة","اختيار الصحبة الإيجابية","تنظيم الوقت","طلب الدعم عند الحاجة"]}
+];
+
+function poster(a){
+return `<div class="poster"><div style="font-size:45px">${a.icon}</div><h2>${a.title}</h2><p>${a.intro}</p>${a.items.map((x,i)=>`<div class="poster-item">${i+1} — ${x}</div>`).join("")}</div>`;
+}
+$("axes-list").innerHTML=axes.map((a,i)=>`
+<article class="card">
+<div class="icon">${a.icon}</div>
+<h3>${a.title}</h3><p>${a.intro}</p>
+<button data-poster="${i}">تكبير الإنفوجرافيك</button>
+</article>`).join("");
+
+document.querySelectorAll("[data-poster]").forEach(b=>{
+b.onclick=()=>{
+$("poster-detail").innerHTML=poster(axes[Number(b.dataset.poster)]);
+$("modal").showModal();
+};
+});
+$("close-modal").onclick=()=>$("modal").close();
+
+const questions=[
+{q:"أي سلوك يعبر عن الوفاء للوطن؟",o:["المحافظة على مرافق المدرسة واحترام الأنظمة","تجاهل التعليمات","الإضرار بالممتلكات"],a:0,why:"المحافظة على المكتسبات واحترام الأنظمة من صور المواطنة المسؤولة."},
+{q:"وصلتك رسالة مثيرة بلا مصدر موثوق، ماذا تفعلين؟",o:["إعادة إرسالها فورًا","التحقق من مصدر رسمي قبل المشاركة","نشرها مع التحذير"],a:1,why:"التثبت قبل النشر يقلل الشائعات ويحمي المجتمع."},
+{q:"عند سماع إنذار الإخلاء في المدرسة، ما التصرف الصحيح؟",o:["التدافع نحو الباب","العودة لجمع الأغراض","اتباع التعليمات والتوجه لنقطة التجمع"],a:2,why:"اتباع خطة الإخلاء وتجنب التدافع يحمي الجميع."},
+{q:"عرضت عليكِ مادة مجهولة، ما القرار السليم؟",o:["رفضها وطلب مساعدة شخص موثوق عند الحاجة","تجربتها بدافع الفضول","قبولها دون سؤال"],a:0,why:"رفض المواد المجهولة واللجوء للدعم قرار وقائي مسؤول."},
+{q:"ماذا تنص المادة الرابعة والثلاثون من النظام الأساسي للحكم؟",o:["أن مشاركة الأخبار واجب","أن الدفاع عن العقيدة الإسلامية والمجتمع والوطن واجب على كل مواطن","أن المحافظة على الصفوف الدراسية هي نص المادة"],a:1,why:"هذا مضمون المادة ٣٤، وتبين المادة أيضًا أن النظام يحدد أحكام الخدمة العسكرية."}
+];
+
+let name="",role="",index=0,answers=Array(5).fill(null),submitted=false;
+
+$("start").onclick=()=>{
+name=$("participant").value.trim();
+role=$("role").value;
+if(name.length<2||!role){alert("أدخلي الاسم واختاري صفة المشاركة.");return;}
+$("registration").classList.add("hide");
+$("quiz").classList.remove("hide");
+render();
+};
+
+function render(){
+$("step").textContent=`السؤال ${index+1} من ٥`;
+$("bar").style.width=`${(index+1)*20}%`;
+$("question").textContent=questions[index].q;
+$("choices").innerHTML=questions[index].o.map((o,i)=>`
+<label class="choice"><input type="radio" name="answer" value="${i}" ${answers[index]===i?"checked":""}>${o}</label>`).join("");
+document.querySelectorAll('input[name="answer"]').forEach(r=>{
+r.onchange=()=>{answers[index]=Number(r.value);$("warning").textContent="";};
+});
+$("prev").disabled=index===0;
+$("next").textContent=index===4?"إرسال الإجابات":"التالي";
+$("warning").textContent="";
+}
+
+$("prev").onclick=()=>{if(index>0){index--;render();}};
+$("next").onclick=()=>{
+if(answers[index]===null){$("warning").textContent="اختاري إجابة قبل المتابعة.";return;}
+if(index<4){index++;render();return;}
+if(submitted)return;
+submitted=true;
+const score=answers.filter((a,i)=>a===questions[i].a).length;
+$("quiz").classList.add("hide");
+$("result").classList.remove("hide");
+$("score").textContent=`نتيجتكِ: ${score} من ٥`;
+$("review").innerHTML=questions.map((q,i)=>`
+<div class="review"><strong>${i+1}. ${q.q}</strong>
+<div class="${answers[i]===q.a?"good":"error"}">إجابتكِ: ${q.o[answers[i]]} ${answers[i]===q.a?"✓":"✗"}</div>
+<div>الإجابة الصحيحة: ${q.o[q.a]}</div><small>${q.why}</small></div>`).join("");
+$("show-cert").classList.toggle("hide",score!==5);
+};
+
+$("retry").onclick=()=>{
+index=0;answers=Array(5).fill(null);submitted=false;
+$("result").classList.add("hide");
+$("quiz").classList.remove("hide");
+$("certificate-section").classList.add("hide");
+render();
+};
+
+$("show-cert").onclick=()=>{
+$("cert-name").textContent=name;
+$("cert-role").textContent="صفة المشاركة: "+role;
+$("cert-date").textContent="تاريخ الإتمام: "+new Intl.DateTimeFormat("ar-SA",{timeZone:"Asia/Riyadh",dateStyle:"long"}).format(new Date());
+$("certificate-section").classList.remove("hide");
+$("certificate-section").scrollIntoView({behavior:"smooth"});
+};
+
+async function certBlob(){
+if(!window.html2canvas)throw Error("تعذر تحميل أداة تحويل الشهادة إلى صورة.");
+await document.fonts.ready;
+const canvas=await html2canvas($("certificate"),{scale:2,backgroundColor:"#fffdf6",useCORS:true});
+return new Promise(resolve=>canvas.toBlob(resolve,"image/png"));
+}
+$("download").onclick=async()=>{
+try{
+const blob=await certBlob();
+const url=URL.createObjectURL(blob);
+const a=document.createElement("a");
+a.href=url;a.download="شهادة-واجب-ومواطنة.png";a.click();
+setTimeout(()=>URL.revokeObjectURL(url),2000);
+}catch(e){alert(e.message+" استخدمي الطباعة إذا تعذر التنزيل.");}
+};
+$("print").onclick=()=>window.print();
+$("share-cert").onclick=async()=>{
+try{
+const blob=await certBlob();
+const file=new File([blob],"certificate.png",{type:"image/png"});
+if(navigator.canShare?.({files:[file]})){
+await navigator.share({files:[file],title:"شهادة واجب ومواطنة"});
+}else{alert("نزّلي الشهادة كصورة ثم شاركيها.");}
+}catch(e){if(e.name!=="AbortError")alert("تعذرت المشاركة المباشرة.");}
+};
+
+$("share-site").onclick=async()=>{
+if(navigator.share){
+try{await navigator.share({title:"واجب ومواطنة",url:location.href});}catch(e){}
+}else{
+try{await navigator.clipboard.writeText(location.href);alert("تم نسخ الرابط.");}
+catch(e){alert("انسخي الرابط من شريط عنوان المتصفح.");}
+}
+};
+
+$("refresh").onclick=()=>{
+$("count-value").textContent="العدّاد المشترك غير متصل بعد — يلزم ربط قاعدة بيانات دائمة.";
+};
+</script>
+</body>
+</html>
